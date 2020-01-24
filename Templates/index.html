@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <!---Boot Strap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+    
+    img {width: 600px;height: 300px;}
+    </style>
+    <title>Notícias</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Notícias Globo</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+            
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Menu
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/carros">Carros</a>
+                          <a class="dropdown-item" href="/planeta-bizarro">Planeta Bizarro</a>
+                          <a class="dropdown-item" href="/tecnologia">Tecnologia</a>
+                          <a class="dropdown-item" href="/turismo-e-viagem">Turismo</a>
+                          <a class="dropdown-item" href="/mundo">Mundo</a>
+                          <!--<div class="dropdown-divider"></div>-->
+                        </div>
+                      </li>
+                      
+            </ul>
+            <a class='float-left'>{{.Titulo}}</a>
+        </div>
+        </nav>
+        
+
+        {{range .Dados}}<br>
+        <div class="container px-lg-5 border bg-light">
+        <h1>{{.Titulo}}</h1>
+        {{.Data}}<br>
+
+        <a class="btn btn-primary" data-toggle="collapse" data-target="#t{{.Img}}" href="#t{{.Img}}" role="button" aria-expanded="false" aria-controls="t{{.Img}}">
+            Exibir descrição
+        </a>
+        <div class="collapse multi-collapse" id="t{{.Img}}">
+            <div class="card card-body">
+                {{.Desc}}
+            </div>
+        </div>
+       
+        <a class="btn btn-primary" href="{{.Link}}" target="_blank">Acessar!</a><br/><br/>
+        </div>
+        {{end}}
+       
+    </div>
+
+</body>
+</html>
